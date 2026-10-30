@@ -1,13 +1,66 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
+    <title>NTK Studio - Universal AI Coding IDE</title>
+    <meta name="description" content="NTK Studio - Universal AI Coding IDE. Sáng tạo không giới hạn." />
+    <style>
+      body, html {
+        margin: 0;
+        padding: 0;
+        background-color: #0b111e;
+        color: #f1f5f9;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        overflow: hidden;
+        height: 100%;
+      }
+      #initial-loader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle at center, #131c31 0%, #080c16 100%);
+        gap: 16px;
+        z-index: 9999;
+      }
+      .loader-spinner {
+        width: 44px;
+        height: 44px;
+        border: 3px solid rgba(56, 189, 248, 0.15);
+        border-top-color: #38bdf8;
+        border-right-color: #a855f7;
+        border-radius: 50%;
+        animation: spin 0.9s linear infinite;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      .loader-title {
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        background: linear-gradient(135deg, #38bdf8, #c084fc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .loader-sub {
+        font-size: 11px;
+        color: #64748b;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="root">
+      <div id="initial-loader">
+        <div class="loader-spinner"></div>
+        <div class="loader-title">NTK STUDIO</div>
+        <div class="loader-sub">Universal AI Coding IDE · Sáng tạo không giới hạn</div>
+      </div>
+    </div>
+    <script type="module" src="./src/main.tsx"></script>
   </body>
 </html>

@@ -1,7 +1,7 @@
 # NTK STUDIO – UNIVERSAL AI CODING IDE
-## NVIDIA Multi-Model Agentic Platform for Windows
+## Phiên Bản 1.2.0 · Sáng Tạo Không Giới Hạn
 
-**NTK Studio** là một AI Coding IDE độc lập trên Windows (10/11 64-bit), có khả năng khai thác toàn bộ sức mạnh của các mô hình AI thông qua NVIDIA API (NVIDIA NIM Platform), tích hợp Agentic Coding thực thi tự động nhiều bước tương tự trải nghiệm của Antigravity.
+**NTK Studio** là một AI Coding IDE độc lập trên Windows (10/11 64-bit), hỗ trợ đa mô hình AI (NVIDIA NIM, OpenAI, Anthropic Claude, Google Gemini, OpenRouter/Ollama), tích hợp Agentic Coding thực thi tự động nhiều bước tương tự trải nghiệm của Google Antigravity.
 
 ---
 

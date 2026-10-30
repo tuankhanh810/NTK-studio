@@ -1,8 +1,9 @@
 {
   "name": "ntk-studio",
   "productName": "NTK Studio",
-  "version": "1.1.0",
-  "description": "Universal AI Coding Studio - NVIDIA Multi-Model Agentic Platform",
+  "version": "1.2.0",
+  "description": "NTK Studio - Universal AI Coding IDE. Sáng tạo không giới hạn.",
+  "author": "NTK Studio Team",
   "type": "module",
   "main": "dist-electron/main.cjs",
   "scripts": {
@@ -41,6 +42,7 @@
       "output": "../release"
     },
     "win": {
+      "icon": "public/icon.ico",
       "target": [
         "nsis",
         "portable"
@@ -51,7 +53,13 @@
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "NTK Studio"
+      "shortcutName": "NTK Studio",
+      "installerIcon": "public/icon.ico",
+      "uninstallerIcon": "public/icon.ico",
+      "artifactName": "NTK Studio Setup ${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "NTK Studio ${version}.${ext}"
     },
     "files": [
       "dist/**/*",

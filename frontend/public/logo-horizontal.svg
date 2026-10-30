@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 140" width="100%" height="100%">
+  <defs>
+    <radialGradient id="hIconBg" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#18233e" />
+      <stop offset="100%" stop-color="#070b14" />
+    </radialGradient>
+    <linearGradient id="hBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+    <linearGradient id="hNGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <linearGradient id="hKGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc" />
+      <stop offset="100%" stop-color="#9333ea" />
+    </linearGradient>
+    <linearGradient id="hTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="50%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#93c5fd" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left Icon Emblem (Scale & Translate) -->
+  <g transform="translate(10, 10)">
+    <rect x="0" y="0" width="120" height="120" rx="28" fill="url(#hIconBg)" stroke="url(#hBorderGrad)" stroke-width="4.5" />
+    <g transform="translate(4, 2) scale(0.22)">
+      <path d="M 132 136 L 180 136 L 180 376 L 132 376 Z" fill="url(#hNGrad)" />
+      <path d="M 172 136 L 222 136 L 312 376 L 262 376 Z" fill="url(#hNGrad)" />
+      <path d="M 264 136 L 312 136 L 312 376 L 264 376 Z" fill="url(#hNGrad)" />
+      <path d="M 292 272 L 382 144 L 436 144 L 332 284 Z" fill="url(#hKGrad)" />
+      <path d="M 314 260 L 436 368 L 380 376 L 276 288 Z" fill="url(#hKGrad)" />
+      <circle cx="316" cy="276" r="14" fill="#ffffff" />
+      <circle cx="316" cy="276" r="7" fill="#38bdf8" />
+    </g>
+  </g>
+
+  <!-- Right Typography -->
+  <text x="156" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="44" letter-spacing="2.5" fill="url(#hTextGrad)">
+    NTK STUDIO
+  </text>
+  <text x="158" y="106" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="14.5" letter-spacing="4" fill="#818cf8">
+    UNIVERSAL AI CODING IDE
+  </text>
+</svg>

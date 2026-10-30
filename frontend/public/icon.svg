@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#151e36" />
+      <stop offset="60%" stop-color="#0a0f1d" />
+      <stop offset="100%" stop-color="#050811" />
+    </radialGradient>
+
+    <!-- Border Gradient: Cyan to Purple -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="45%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <!-- N Letter Gradient: Pure Bright Cyan to Electric White -->
+    <linearGradient id="nGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="50%" stop-color="#e0f2fe" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+
+    <!-- K Letter Gradient: Rich Electric Purple to Pink -->
+    <linearGradient id="kGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="accentGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Base Rounded Card -->
+  <rect x="28" y="28" width="456" height="456" rx="96" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="12" />
+
+  <!-- Inner Subtle Glow Line -->
+  <rect x="42" y="42" width="428" height="428" rx="84" fill="none" stroke="rgba(56, 189, 248, 0.12)" stroke-width="2" />
+
+  <!-- Stylized "NK" AI Monogram -->
+  <g filter="url(#softGlow)">
+    <!-- Letter N: Left Vertical Bar -->
+    <path d="M 132 136 L 180 136 L 180 376 L 132 376 Z" fill="url(#nGrad)" rx="8" />
+
+    <!-- Letter N: Diagonal Crossbar -->
+    <path d="M 172 136 L 222 136 L 312 376 L 262 376 Z" fill="url(#nGrad)" />
+
+    <!-- Shared/Right N Stem & K Backbone -->
+    <path d="M 264 136 L 312 136 L 312 376 L 264 376 Z" fill="url(#nGrad)" rx="8" />
+
+    <!-- Letter K: Upper Diagonal Branch -->
+    <path d="M 292 272 L 382 144 L 436 144 L 332 284 Z" fill="url(#kGrad)" rx="6" />
+
+    <!-- Letter K: Lower Diagonal Branch -->
+    <path d="M 314 260 L 436 368 L 380 376 L 276 288 Z" fill="url(#kGrad)" rx="6" />
+
+    <!-- Tech AI Core Node (Glowing intersection spark) -->
+    <circle cx="316" cy="276" r="14" fill="#ffffff" filter="url(#accentGlow)" />
+    <circle cx="316" cy="276" r="8" fill="#38bdf8" />
+  </g>
+</svg>
