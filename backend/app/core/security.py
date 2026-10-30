@@ -5,7 +5,7 @@ import re
 import datetime
 from pathlib import Path
 from typing import Optional
-from app.config import APP_DIR, LOG_DIR
+from app.config import APP_DIR, LOG_DIR, CONFIG_DIR
 
 # 1. Windows DPAPI & Encryption
 HAS_WIN32CRYPT = False
@@ -45,8 +45,10 @@ def encrypt_api_key(raw_key: str) -> str:
 
     # Fallback encryption if DPAPI unavailable
     from cryptography.fernet import Fernet
-    key_file = APP_DIR / "local_vault.bin"
-    if not key_file.exists():
+    key_file = CONFIG_DIR / "local_vault.bin"
+    if not key_file.exists() and (APP_DIR / "local_vault.bin").exists():
+        key_file = APP_DIR / "local_vault.bin"
+    elif not key_file.exists():
         k = Fernet.generate_key()
         key_file.write_bytes(k)
         try:
@@ -79,7 +81,9 @@ def decrypt_api_key(encrypted_str: str) -> str:
 
     if encrypted_str.startswith("fernet::"):
         from cryptography.fernet import Fernet
-        key_file = APP_DIR / "local_vault.bin"
+        key_file = CONFIG_DIR / "local_vault.bin"
+        if not key_file.exists() and (APP_DIR / "local_vault.bin").exists():
+            key_file = APP_DIR / "local_vault.bin"
         if key_file.exists():
             try:
                 cipher = Fernet(key_file.read_bytes().strip())

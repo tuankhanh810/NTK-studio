@@ -23,6 +23,10 @@ def build():
         f"--distpath={dist_dir}",
         f"--workpath={build_dir}",
         "--paths", str(backend_dir),
+        "--hidden-import", "fastapi",
+        "--hidden-import", "starlette",
+        "--hidden-import", "pydantic",
+        "--hidden-import", "pydantic_core",
         "--hidden-import", "uvicorn",
         "--hidden-import", "uvicorn.logging",
         "--hidden-import", "uvicorn.loops",
@@ -35,10 +39,13 @@ def build():
         "--hidden-import", "uvicorn.lifespans",
         "--hidden-import", "uvicorn.lifespans.on",
         "--hidden-import", "aiosqlite",
+        "--hidden-import", "sqlite3",
+        "--hidden-import", "sqlalchemy",
         "--hidden-import", "sqlalchemy.ext.asyncio",
         "--hidden-import", "greenlet",
         "--hidden-import", "cryptography",
         "--hidden-import", "httpx",
+        "--hidden-import", "anyio",
         str(entry_point)
     ]
 

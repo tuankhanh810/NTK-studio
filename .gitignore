@@ -13,6 +13,8 @@ release/*.blockmap
 release/backend/
 release/win-unpacked/
 release/build_temp/
+release/builder-debug.yml
+release/builder-effective-config.yaml
 *.log
 
 # IDE & OS

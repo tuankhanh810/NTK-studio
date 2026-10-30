@@ -1,0 +1,77 @@
+================================================================================
+NTK STUDIO 1.2.0 – RELEASE NOTES
+Universal AI Coding IDE – Self-Contained Windows Distribution
+================================================================================
+
+1. TỔNG QUAN PHIÊN BẢN (VERSION OVERVIEW)
+- Phiên bản: NTK Studio 1.2.0 (Stable Release)
+- Nền tảng hỗ trợ: Windows 10 / Windows 11 (64-bit Architecture x64)
+- Ngày phát hành: 30/10/2026
+- Tác giả & Bản quyền: NTK Studio Team
+- Bản quyền phân phối: Standalone, Self-Contained. Người dùng cuối KHÔNG CẦN cài đặt:
+  + Python
+  + Node.js / npm
+  + Git
+  + Source code
+  + Visual Studio C++ Redistributable hoặc Antigravity
+
+================================================================================
+2. CÁC GÓI PHÂN PHỐI (DISTRIBUTION PACKAGES)
+A. NSIS Installer:
+   - Tên file: NTK Studio Setup 1.2.0.exe
+   - Dung lượng: ~129.5 MB
+   - Tính năng:
+     + Cài đặt theo người dùng (Per-user setup, không đòi hỏi quyền Administrator).
+     + Tự động tạo Desktop Shortcut và Start Menu Shortcut.
+     + Tích hợp bộ gỡ cài đặt sạch sẽ (Uninstaller).
+     + Bảo toàn cấu hình và dữ liệu làm việc khi nâng cấp phiên bản.
+
+B. Portable Standalone:
+   - Tên file: NTK Studio 1.2.0 Portable.exe
+   - Dung lượng: ~118.6 MB
+   - Tính năng:
+     + Chạy ngay lập tức, không yêu cầu cài đặt.
+     + Không phụ thuộc vào thư mục phát triển ban đầu.
+     + Hỗ trợ cấu hình lưu trữ riêng biệt hoặc cạnh ứng dụng (thư mục `data/`).
+
+================================================================================
+3. CÁC ĐIỂM NỔI BẬT & TÍNH NĂNG MỚI TRONG BẢN 1.2.0 (HIGHLIGHTS & CHANGELOG)
+- Self-Contained Python Backend:
+  + Đóng gói độc lập toàn bộ FastAPI, Uvicorn, SQLite, SQLAlchemy Async, Cryptography, Httpx bằng PyInstaller.
+  + Electron Main Process tự động kiểm soát vòng đời của ntk_backend.exe:
+    * Khởi chạy nền, kiểm tra tự động /api/health và phiên bản 1.2.0.
+    * Ngăn chặn spawn nhiều tiến trình trùng lặp.
+    * Đóng tiến trình triệt để khi thoát ứng dụng (không chạy ngầm ngoài ý muốn).
+    * Backend chỉ lắng nghe tại loopback 127.0.0.1:8765, bảo mật tuyệt đối.
+
+- Chuẩn hóa Cấu trúc Dữ liệu Người Dùng (%APPDATA%\NTK Studio):
+  + Tự động tạo và bảo vệ 5 thư mục chuyên biệt:
+    * config/      : Lưu trữ thiết lập bảo mật và cấu hình hệ thống.
+    * database/    : SQLite database ntk_studio.db với cơ chế auto-migration.
+    * logs/        : Ghi nhật ký vận hành và audit bảo mật.
+    * models/      : Bộ nhớ cache catalog models từ NVIDIA / Open-AI providers.
+    * user_data/   : Không gian lưu trữ dự án và checkpoints cá nhân.
+  + Không lưu dữ liệu trong thư mục Program Files hoặc thư mục cài đặt.
+
+- Bảo mật Cấp Doanh nghiệp:
+  + Mã hóa API Key bằng Windows DPAPI (CryptProtectData / CryptUnprotectData).
+  + Khóa riêng theo từng tài khoản Windows, không thể giải mã chéo giữa các máy tính.
+  + Cơ chế Fallback mã hóa đối xứng nếu môi trường không hỗ trợ DPAPI.
+  + Không bao giờ ghi API Key dạng plaintext hoặc đưa secret của nhà phát triển vào gói phát hành.
+
+- Bộ Nhận Diện Thương Hiệu NTK Studio & Giao Diện 3 Cột Hiện Đại:
+  + Chuẩn hóa đồng nhất 100% thương hiệu: "NTK Studio - Sáng tạo không giới hạn".
+  + Logo NK cách điệu đa kích thước (16x16 đến 256x256), áp dụng đồng bộ trên Cửa sổ ứng dụng, Thanh Taskbar, Desktop Shortcut, Installer và About.
+  + Giao diện 3 cột chuyên nghiệp:
+    * Cột 1: Navigation Sidebar tiện lợi (Home, Project, Models, Benchmark, Agent, Git, Terminal, Settings).
+    * Cột 2: Workspace tương tác trực quan với Hero Banner và Quick Actions.
+    * Cột 3: Trạng thái thời gian thực của Model hiện hành, kết nối Provider và thống kê Token/RPM.
+  + Khắc phục triệt để lỗi cửa sổ đen và xung đột ES Module/CommonJS.
+
+================================================================================
+4. SHA-256 CHECKSUMS
+Vui lòng đối chiếu mã băm SHA256 sau khi tải về để xác minh tính toàn vẹn:
+
+701bd9c3789c5a2868e617656ad7c300af254d3da625916822db21492fea9658  NTK Studio Setup 1.2.0.exe
+0fc620b581c1011e033dba28063f66d091197eddcf6cf3a2f3aa32a95a40d799  NTK Studio 1.2.0 Portable.exe
+================================================================================

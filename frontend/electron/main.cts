@@ -82,11 +82,18 @@ async function startBackendAsync() {
     ? path.join(__dirname, '../../')
     : path.join(process.resourcesPath);
 
+  const backendEnv = {
+    ...process.env,
+    PORTABLE_EXECUTABLE_DIR: process.env.PORTABLE_EXECUTABLE_DIR || '',
+    NTK_STUDIO_DATA_DIR: app.getPath('userData'),
+  };
+
   if (isDev) {
     const pythonScript = path.join(rootDir, 'backend', 'run_backend.py');
     console.log(`[Dev] Spawning Python backend: python ${pythonScript}`);
     backendProcess = spawn('python', [pythonScript], {
       cwd: path.join(rootDir, 'backend'),
+      env: backendEnv,
       stdio: 'pipe',
     });
   } else {
@@ -96,6 +103,7 @@ async function startBackendAsync() {
       console.log(`[Prod] Spawning packaged backend: ${binaryPath}`);
       backendProcess = spawn(binaryPath, [], {
         cwd: path.dirname(binaryPath),
+        env: backendEnv,
         stdio: 'pipe',
       });
     } else {

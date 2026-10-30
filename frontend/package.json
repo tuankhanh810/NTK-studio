@@ -50,16 +50,18 @@
     },
     "nsis": {
       "oneClick": false,
+      "perMachine": false,
       "allowToChangeInstallationDirectory": true,
-      "createDesktopShortcut": true,
+      "createDesktopShortcut": "always",
       "createStartMenuShortcut": true,
       "shortcutName": "NTK Studio",
       "installerIcon": "public/icon.ico",
       "uninstallerIcon": "public/icon.ico",
+      "deleteAppDataOnUninstall": false,
       "artifactName": "NTK Studio Setup ${version}.${ext}"
     },
     "portable": {
-      "artifactName": "NTK Studio ${version}.${ext}"
+      "artifactName": "NTK Studio ${version} Portable.${ext}"
     },
     "files": [
       "dist/**/*",
